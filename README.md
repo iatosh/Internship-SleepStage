@@ -1,1 +1,1 @@
-# Sleep-Stage-Classification
+# Sleep Stage Classification
