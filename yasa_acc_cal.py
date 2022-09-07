@@ -1,5 +1,4 @@
 import mne
-import numpy as np
 import pandas as pd
 import yasa
 from mne.datasets.sleep_physionet.age import fetch_data
@@ -27,6 +26,8 @@ event_id = {
 # Pattern 1: 0, x, x, ... x, x, 0 (1 < x < 4)
 # Pattern 2: 0, 2, 2, 3, ...
 def check_trans(array, index, current, count):
+    if index + 1 == array.size:
+        return ["NIL", 0]
     stage = array[index + 1]
 
     # 0, 2, 2, ... 2, 0
@@ -86,15 +87,13 @@ def fetch(amount):
             amount += 1
 
     for i in range(amount):
-        [data] = fetch_data(subjects=[0], recording=[1])
-        DataList[0].append(data)
-        print(DataList[0])
-
+        [data] = fetch_data(subjects=[i], recording=[1])
+        print(data)
         edf = mne.io.read_raw_edf(
-            DataList[0][i][0], stim_channel="Event marker", misc=["Temp rectal"]
+            data[0], stim_channel="Event marker", misc=["Temp rectal"]
         )
 
-        annot = mne.read_annotations(DataList[0][i][1])
+        annot = mne.read_annotations(data[1])
         edf.set_annotations(annot, emit_warning=False)
 
         events, _ = mne.events_from_annotations(
@@ -113,30 +112,29 @@ def fetch(amount):
         )
 
         hypno = epochs_test.events[:, 2] - 1
+
+        DataList[0].append(edf)
         DataList[1].append(hypno)
 
     return DataList
 
 
-sls = yasa.SleepStaging(edf, eeg_name="EEG Fpz-Cz")
-hypno_pred = sls.predict()
-hypno_pred = yasa.hypno_str_to_int(hypno_pred)
+amount = 5
+Data = fetch(amount)
+print(Data)
 
-csv_pre = pd.DataFrame(hypno_pred)
-csv_pre.to_csv("./csv_pre.csv")
+accuracy = []
 
-# hypno_pred = np.array([0,0,0,2,2,0,0,2,3,0])
-fixed = np.copy(hypno_pred)
+for i in range(amount):
+    sls = yasa.SleepStaging(Data[0][i], eeg_name="EEG Fpz-Cz")
+    hypno_pred = sls.predict()
+    hypno_pred = yasa.hypno_str_to_int(hypno_pred)
 
-fix_hypno(fixed)
+    fix_hypno(hypno_pred)
 
-acc_bef = accuracy_score(hypno, hypno_pred)  # 修正前の正解率
-# acc_case1 = accuracy_score(hypno, fix_case1)
-acc_aft = accuracy_score(hypno, fixed)  # 修正後の正解率
-# acc_case3 = accuracy_score(hypno, fix_case3)
+    acc = accuracy_score(Data[1][i], hypno_pred)  # 修正後の正解率
+    accuracy.append(acc)
 
-print("正解率")
-print("  修正前", acc_bef)
-# print('  修正後(方法1)', acc_case1)
-print("  修正後", acc_aft)
-# print('  修正後(方法3)', acc_case3)
+
+csv_pre = pd.DataFrame(accuracy)
+csv_pre.to_csv("./accuracy.csv")

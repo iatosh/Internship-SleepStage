@@ -1,0 +1,13 @@
+[
+    [
+     <RawEDF | SC4001E0-PSG.edf, 7 x 7950000 (79500.0 s), ~12 kB, data not loaded>, 
+     <RawEDF | SC4011E0-PSG.edf, 7 x 8406000 (84060.0 s), ~12 kB, data not loaded>, 
+     <RawEDF | SC4021E0-PSG.edf, 7 x 8412000 (84120.0 s), ~12 kB, data not loaded>, 
+     <RawEDF | SC4031E0-PSG.edf, 7 x 8460000 (84600.0 s), ~12 kB, data not loaded>, 
+    [
+     array([0, 0, 0, ..., 0, 0, 0]), 
+     array([0, 0, 0, ..., 0, 0, 0]), 
+     array([0, 0, 0, ..., 0, 0, 0]), 
+     array([0, 0, 0, ..., 0, 0, 0]), 
+    ]
+]
