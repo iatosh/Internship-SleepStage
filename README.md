@@ -8,14 +8,14 @@
 4. YASAを用いて、EEG、EOG、EMGの3つのデータで推定 
 
 ## リンク
-[行ったこと 1](./get_hypnogram/Document.ipynb) (ヒプノグラムの表示)  
-[行ったこと 1](./get_accuracy/Accuracy_document.ipynb) (複数データの正解率)  
+[公式ドキュメントの手法](./get_hypnogram/Document.ipynb) (ヒプノグラムの表示)  
+[公式ドキュメントの手法](./get_accuracy/Accuracy_document.ipynb) (複数データの正解率)  
 
-[行ったこと 2](./get_hypnogram/Document_Changed.ipynb) (ヒプノグラムの表示)  
-[行ったこと 2](./get_accuracy/Accuracy_document_changed.ipynb) (複数データの正解率)  
+[周波数バンド変更](./get_hypnogram/Document_Changed.ipynb) (ヒプノグラムの表示)  
+[周波数バンド変更](./get_accuracy/Accuracy_document_changed.ipynb) (複数データの正解率)  
 
-[行ったこと 3](./get_hypnogram/YASA_1Ch.ipynb) (ヒプノグラムの表示)  
-[行ったこと 3](./get_accuracy/Accuracy_yasa_3Ch.ipynb) (複数データの正解率)  
+[YASA 1Channel](./get_hypnogram/YASA_1Ch.ipynb) (ヒプノグラムの表示)  
+[YASA 1Channel](./get_accuracy/Accuracy_yasa_3Ch.ipynb) (複数データの正解率)  
 
-[行ったこと 4](./get_hypnogram/YASA_3Ch.ipynb) (ヒプノグラムの表示)  
-[行ったこと 4](./get_accuracy/Accuracy_yasa_3Ch.ipynb) (複数データの正解率)  
+[YASA 3Channel](./get_hypnogram/YASA_3Ch.ipynb) (ヒプノグラムの表示)  
+[YASA 3Channel](./get_accuracy/Accuracy_yasa_3Ch.ipynb) (複数データの正解率)  
