@@ -11,7 +11,7 @@ black @ file:///home/conda/feedstock_root/build_artifacts/black-recipe_165979187
 bleach @ file:///home/conda/feedstock_root/build_artifacts/bleach_1656355450470/work
 brotlipy @ file:///home/conda/feedstock_root/build_artifacts/brotlipy_1648854164373/work
 cached-property @ file:///home/conda/feedstock_root/build_artifacts/cached_property_1615209429212/work
-certifi==2023.7.22
+certifi==2024.7.4
 cffi @ file:///home/conda/feedstock_root/build_artifacts/cffi_1656782830073/work
 charset-normalizer @ file:///home/conda/feedstock_root/build_artifacts/charset-normalizer_1661170624537/work
 click @ file:///home/conda/feedstock_root/build_artifacts/click_1651215153723/work
